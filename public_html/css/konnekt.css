@@ -1,8 +1,4 @@
 
-.container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
-    max-width: 940px;
-}
-
 body {
     margin:0px;
     background-image:url(../img/back.png);
