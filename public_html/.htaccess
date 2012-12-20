@@ -1,0 +1,54 @@
+Options -indexes
+
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_URI} beta_central.php
+RewriteRule .+ http://www.konnekt.info/beta_fake.html [R,L]
+
+RewriteCond %{HTTP_HOST} !www\.konnekt\.info
+RewriteCond %{HTTP_HOST} konnekt\.info
+RewriteRule ^(.+)$ http://www.konnekt.info/$1 [R,L]
+
+#RewriteCond %{REQUEST_URI} /forum.*
+#RewriteRule ^(.+)$ / [R,L]
+
+
+RewriteCond %{REQUEST_URI} /forum/download.*
+RewriteCond %{QUERY_STRING} id=(\d+)
+RewriteRule ^.+$ /forum/index.php?act=Attach&type=post&id=%1 [QSA,L]
+
+#forum/index.php?showforum=3
+#http://konnekt.jego.stamina.pl/forum/lofiversion/f50.html
+#http://www.konnekt.info/forum/index.php?showtopic=12099&pid=94903&st=0&#entry94903
+#http://konnekt.jego.stamina.pl/forum/lofiversion/t6478.html
+
+RewriteCond %{REQUEST_URI} /forum(/index.php)?$
+RewriteCond %{QUERY_STRING} showforum=(\d+)
+RewriteRule ^.+$ /forum/lofiversion/f%1.html? [R,L]
+
+RewriteCond %{REQUEST_URI} /forum(/index.php)?$
+RewriteCond %{QUERY_STRING} showtopic=(\d+)
+RewriteRule ^.+$ /forum/lofiversion/t%1.html? [R,L]
+
+RewriteCond %{REQUEST_URI} /forum.*
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d [OR]
+RewriteCond %{REQUEST_URI} /forum/?$
+RewriteRule ^(.+)$ /forum/lofiversion/ [R,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !/strych/
+RewriteCond /home/konnekt/public_html/strych%{REQUEST_URI} -f
+RewriteRule ^(.+)$ /strych/$0 [QSA,R,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !/strych/
+RewriteCond /home/konnekt/public_html/strych%{REQUEST_URI}.html -f
+#RewriteRule ^(.+)$ /strych/$0.html [QSA,R,L]
+
+
+
+
