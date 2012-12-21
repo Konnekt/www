@@ -3,6 +3,12 @@ Options -indexes
 RewriteEngine On
 RewriteBase /
 
+
+RewriteCond %{REQUEST_URI} /konnekt_setup\.exe$ [OR]
+RewriteCond %{REQUEST_URI} ^/download(/|\.html)?$
+RewriteRule .+ /download/konnekt_setup_0.6.22.137.exe [R,L]
+
+
 RewriteCond %{REQUEST_URI} beta_central.php
 RewriteRule .+ http://www.konnekt.info/beta_fake.html [R,L]
 
@@ -17,6 +23,7 @@ RewriteRule ^(.+)$ http://www.konnekt.info/$1 [R,L]
 RewriteCond %{REQUEST_URI} /forum/download.*
 RewriteCond %{QUERY_STRING} id=(\d+)
 RewriteRule ^.+$ /forum/index.php?act=Attach&type=post&id=%1 [QSA,L]
+
 
 #forum/index.php?showforum=3
 #http://konnekt.jego.stamina.pl/forum/lofiversion/f50.html
