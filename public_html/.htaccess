@@ -6,7 +6,7 @@ RewriteBase /
 
 RewriteCond %{REQUEST_URI} /konnekt_setup\.exe$ [OR]
 RewriteCond %{REQUEST_URI} ^/download(/|\.html)?$
-RewriteRule .+ /download/konnekt_setup_0.6.22.137.exe [R,L]
+RewriteRule .+ /download/konnekt_setup_0.6.23.140.exe [R,L]
 
 
 RewriteCond %{REQUEST_URI} beta_central.php
