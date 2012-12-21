@@ -47,13 +47,13 @@ RewriteRule ^(.+)$ /forum/lofiversion/ [R,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !/strych/
-RewriteCond /home/konnekt/public_html/strych%{REQUEST_URI} -f
+RewriteCond %{DOCUMENT_ROOT}/strych%{REQUEST_URI} -f
 RewriteRule ^(.+)$ /strych/$0 [QSA,R,L]
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} !/strych/
-RewriteCond /home/konnekt/public_html/strych%{REQUEST_URI}.html -f
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_URI} !/strych/
+#RewriteCond %{DOCUMENT_ROOT}/strych%{REQUEST_URI}.html -f
 #RewriteRule ^(.+)$ /strych/$0.html [QSA,R,L]
 
 
