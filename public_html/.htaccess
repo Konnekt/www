@@ -20,9 +20,9 @@ RewriteRule ^(.+)$ http://www.konnekt.info/$1 [R,L]
 #RewriteRule ^(.+)$ / [R,L]
 
 
-RewriteCond %{REQUEST_URI} /forum/download.*
-RewriteCond %{QUERY_STRING} id=(\d+)
-RewriteRule ^.+$ /forum/index.php?act=Attach&type=post&id=%1 [QSA,L]
+#RewriteCond %{REQUEST_URI} /forum/download.*
+#RewriteCond %{QUERY_STRING} id=(\d+)
+#RewriteRule ^.+$ /forum/index.php?act=Attach&type=post&id=%1 [QSA,L]
 
 
 #forum/index.php?showforum=3
